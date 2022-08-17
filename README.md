@@ -32,6 +32,15 @@ capsule \
   -mode=http \
   -httpPort=7070
 ```
+or from a remote location:
+```bash
+capsule \
+  -url=http://localhost:9090/hey.wasm \
+  -wasm=./tmp/hey.wasm \
+  -mode=http \
+  -httpPort=7070
+```
+
 
 **call**:
 ```bash
@@ -59,4 +68,3 @@ MESSAGE="👋 hello world 🌍" capsule \
 ```
 
 Open your browser: http://localhost:7071
-

@@ -1,4 +1,4 @@
-module github.com/bots-garden/capsule-launcher-demo/functions/hola
+module hola
 
 go 1.18
 

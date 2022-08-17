@@ -40,5 +40,3 @@ func Handle(params []string) (string, error) {
 
 	return "that's all 🙂", err
 }
-
-// ? HandleJson, Handle<>, ...
