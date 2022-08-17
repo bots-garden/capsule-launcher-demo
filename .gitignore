@@ -3,3 +3,4 @@ capsule
 tmp
 .DS_Store
 dump.rdb
+*.wasm

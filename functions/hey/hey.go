@@ -22,7 +22,7 @@ func Handle(bodyReq string, headersReq map[string]string) (bodyResp string, head
 	// get the data of the body request
 	author := gjson.Get(bodyReq, "author")
 	message := gjson.Get(bodyReq, "message")
-	
+
 	hf.Log("🟢 Content-Type: " + headersReq["Content-Type"])
 	hf.Log("🔵 Content-Length: " + headersReq["Content-Length"])
 	hf.Log("🟠 User-Agent: " + headersReq["User-Agent"])
@@ -30,12 +30,12 @@ func Handle(bodyReq string, headersReq map[string]string) (bodyResp string, head
 
 	headersResp = map[string]string{
 		"Content-Type": "application/json; charset=utf-8",
-		"Message":      "your message:" + message.String(),
+		"YourMessage":  message.String(),
 		"MyToken":      headersReq["My-Token"],
 	}
 
 	jsondoc := `{"message": ""}`
-	jsondoc, err := sjson.Set(jsondoc, "message", "👋 hey! " + author.String() + " What's up?")
+	jsondoc, err := sjson.Set(jsondoc, "message", "👋 hey! "+author.String()+" What's up?")
 
 	return jsondoc, headersResp, err
 }

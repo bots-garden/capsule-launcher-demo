@@ -1,4 +1,4 @@
-module github.com/bots-garden/capsule-faas-demo/hey
+module github.com/bots-garden/capsule-launcher-demo/functions/hey
 
 go 1.18
 
