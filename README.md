@@ -41,7 +41,6 @@ capsule \
   -httpPort=7070
 ```
 
-
 **call**:
 ```bash
 curl -v -X POST \
