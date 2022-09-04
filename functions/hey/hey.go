@@ -14,28 +14,28 @@ func main() {
 	hf.SetHandleHttp(Handle)
 }
 
-func Handle(bodyReq string, headersReq map[string]string) (bodyResp string, headersResp map[string]string, errResp error) {
+func Handle(req hf.Request) (resp hf.Response, errResp error) {
 
 	// display the body request
-	hf.Log("📝 body: " + bodyReq)
+	hf.Log("📝 body: " + req.Body)
 
 	// get the data of the body request
-	author := gjson.Get(bodyReq, "author")
-	message := gjson.Get(bodyReq, "message")
+	author := gjson.Get(req.Body, "author")
+	message := gjson.Get(req.Body, "message")
 
-	hf.Log("🟢 Content-Type: " + headersReq["Content-Type"])
-	hf.Log("🔵 Content-Length: " + headersReq["Content-Length"])
-	hf.Log("🟠 User-Agent: " + headersReq["User-Agent"])
-	hf.Log("🔴 My-Token: " + headersReq["My-Token"])
+	hf.Log("🟢 Content-Type: " + req.Headers["Content-Type"])
+	hf.Log("🔵 Content-Length: " + req.Headers["Content-Length"])
+	hf.Log("🟠 User-Agent: " + req.Headers["User-Agent"])
+	hf.Log("🔴 My-Token: " + req.Headers["My-Token"])
 
-	headersResp = map[string]string{
+	headers := map[string]string{
 		"Content-Type": "application/json; charset=utf-8",
 		"YourMessage":  message.String(),
-		"MyToken":      headersReq["My-Token"],
+		"MyToken":      req.Headers["My-Token"],
 	}
 
 	jsondoc := `{"message": ""}`
 	jsondoc, err := sjson.Set(jsondoc, "message", "👋 hey! "+author.String()+" What's up?")
 
-	return jsondoc, headersResp, err
+	return hf.Response{Body: jsondoc, Headers: headers}, err
 }
