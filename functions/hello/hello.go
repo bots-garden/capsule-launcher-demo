@@ -4,6 +4,19 @@ import (
 	hf "github.com/bots-garden/capsule/capsulemodule/hostfunctions"
 )
 
+//export OnLoad
+func OnLoad() {
+	hf.Log("👋 hello from `OnLoad` function")
+	hf.MemorySet("message", "I 💜 WebAssembly")
+}
+
+//export OnExit
+func OnExit() {
+	hf.Log("👋 hello from `OnExit` function")
+	message, _ := hf.MemoryGet("message")
+	hf.Log("The message is: " + message)
+}
+
 func main() {
 	hf.SetHandleHttp(Handle)
 }
