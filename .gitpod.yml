@@ -7,7 +7,15 @@ tasks:
       wget -O - https://raw.githubusercontent.com/bots-garden/capsule/${CAPSULE_VERSION}/install-capsule-launcher.sh| bash
     init: |
       echo "🚀 ..."
-
+      cd functions/hello
+      ./refresh-package.sh
+      ./build.sh
+      cd ../functions/hey
+      ./refresh-package.sh
+      ./build.sh
+      cd ../functions/hola
+      ./refresh-package.sh
+      ./build.sh
 
 ports:
   - port: 3000-25000
