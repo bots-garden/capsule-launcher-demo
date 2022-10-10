@@ -3,13 +3,8 @@ image: k33g/capsule:0.0.1
 tasks:
   - name: initialize
     before: |
-      CAPSULE_VERSION="v0.2.3"
-      OS="linux"
-      ARCH="amd64"
-      echo "💊 Installing the capsule launcher..."
-      wget https://github.com/bots-garden/capsule/releases/download/${CAPSULE_VERSION}/capsule-${CAPSULE_VERSION}-${OS}-${ARCH}.tar.gz
-      sudo tar -zxf capsule-${CAPSULE_VERSION}-${OS}-${ARCH}.tar.gz --directory /usr/local/bin
-      rm capsule-${CAPSULE_VERSION}-${OS}-${ARCH}.tar.gz
+      CAPSULE_VERSION="v0.2.8"
+      wget -O - https://raw.githubusercontent.com/bots-garden/capsule/${CAPSULE_VERSION}/install-capsule-launcher.sh| bash
     init: |
       echo "🚀 ..."
 
