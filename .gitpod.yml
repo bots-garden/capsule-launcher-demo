@@ -10,10 +10,10 @@ tasks:
       cd functions/hello
       ./refresh-package.sh
       ./build.sh
-      cd ../functions/hey
+      cd ../hey
       ./refresh-package.sh
       ./build.sh
-      cd ../functions/hola
+      cd ../hola
       ./refresh-package.sh
       ./build.sh
 
