@@ -16,6 +16,8 @@ tasks:
       cd ../hola
       ./refresh-package.sh
       ./build.sh
+      cd ../..
+      ./git.sh update "dependencies"
 
 ports:
   - port: 3000-25000

@@ -4,3 +4,4 @@ MESSAGE="👋 hello world 🌍" capsule \
   -mode=http \
   -httpPort=7071
 
+# gp preview $(gp url 7071)
